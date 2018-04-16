@@ -17,11 +17,22 @@ class App extends Component {
     });
   };
 
+  removeCharHandler = (event, index) => {
+    let newTextArr = [...this.state.text.split('')];
+    newTextArr.splice(index, 1);
+    this.setState({
+      text: newTextArr.join(''),
+      textLength: newTextArr.length
+    });
+  };
+
   render() {
     let charComponents = (
       <div>
-        {this.state.text.split('').map((c) => {
-          return <CharComponent letter={c}/>
+        {this.state.text.split('').map((c, index) => {
+          return <CharComponent
+            letter={c}
+            click={(event) => this.removeCharHandler.bind(this)(event, index)}/>
         })}
       </div>
     );
