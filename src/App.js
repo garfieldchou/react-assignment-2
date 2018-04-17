@@ -17,7 +17,7 @@ class App extends Component {
     });
   };
 
-  removeCharHandler = (event, index) => {
+  removeCharHandler = (index) => {
     let newTextArr = [...this.state.text.split('')];
     newTextArr.splice(index, 1);
     this.setState({
@@ -33,7 +33,7 @@ class App extends Component {
           return <CharComponent
             letter={c}
             key={index}
-            click={(event) => this.removeCharHandler.bind(this)(event, index)}/>
+            click={this.removeCharHandler.bind(this, index)}/>
         })}
       </div>
     );
