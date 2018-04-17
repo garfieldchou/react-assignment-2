@@ -32,6 +32,7 @@ class App extends Component {
         {this.state.text.split('').map((c, index) => {
           return <CharComponent
             letter={c}
+            key={index}
             click={(event) => this.removeCharHandler.bind(this)(event, index)}/>
         })}
       </div>
