@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   removeCharHandler = (index) => {
-    let newTextArr = [...this.state.text.split('')];
+    let newTextArr = this.state.text.split('');
     newTextArr.splice(index, 1);
     this.setState({
       text: newTextArr.join(''),
